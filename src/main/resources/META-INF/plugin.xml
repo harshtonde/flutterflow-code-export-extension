@@ -1,0 +1,29 @@
+<idea-plugin>
+    <id>com.flutterflow.FlutterFlowCodeExport</id>
+    <name>FlutterFlowCodeExport</name>
+    <vendor email="mymail4test.app@gmail.com" url="https://flutterflow.io/">FlutterFlow</vendor>
+    <version>0.0.1</version>
+    <description><![CDATA[
+    Allows to easily manage code exports for your FlutterFlow projects.<br>
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="actions.FlutterFlowConfig"/>
+        <notificationGroup id="FlutterFlow" displayType="BALLOON" isLogByDefault="true" />
+    </extensions>
+
+    <actions>
+        <group id="FlutterFlowMenu" text="FlutterFlow" description="FlutterFlow menu">
+            <add-to-group group-id="MainMenu" anchor="before" relative-to-action="HelpMenu"/>
+        </group>
+        <action id="flutterflow" class="actions.FlutterFlowConfigAction" text="FlutterFlow Configuration">
+            <add-to-group group-id="FlutterFlowMenu" anchor="first" />
+        </action>
+        <action id="CodeDownloadWithAssets" class="actions.CodeDownloadWithAssets" text="Code Download With Assets">
+            <add-to-group group-id="FlutterFlowMenu" />
+        </action>
+        <action id="CodeDownloadWithoutAssets" class="actions.CodeDownloadWithoutAssets" text="Code Download Without Assets (Faster)">
+            <add-to-group group-id="FlutterFlowMenu" anchor="last" />
+        </action>
+    </actions>
+</idea-plugin>
